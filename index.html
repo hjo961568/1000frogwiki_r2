@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>개구리위키</title>
+
+<style>
+body {
+    background-color: #fff2b2;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 300px;
+    height: 20px;
+    border: 1px solid #999999;
+    text-align: left;
+}
+
+.label {
+    width: 80px;
+    background-color: #ffd400;
+    text-align: center;
+}
+
+tr:nth-child(2) {
+    height: 20px;
+}
+
+/* 관련 문서 표 크기 고정 */
+.temp-table {
+    width: 368px;
+    table-layout: fixed;
+}
+
+.temp-table tr:nth-child(1) {
+    height: 70px;
+}
+
+/* 관련 문서 제목 */
+.related-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.related-title img {
+    margin-right: 8px;
+}
+
+/* 사진과 글 사이 세로선 */
+.related-divider {
+    width: 1px;
+    height: 50px;
+    background-color: #999999;
+    margin-right: 8px;
+}
+
+.related-title-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.profile-table tr:nth-child(2) {
+    height: 350px;
+}
+
+p {
+    margin: 0;
+}
+
+/* 펼치기 • 접기 */
+.toggle-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.toggle-button {
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 본문 접기 화살표 */
+.section-toggle {
+    display: inline-block;
+    transform: translateY(-7px);
+    cursor: pointer;
+    user-select: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>천개구리위키</h1>
+
+<p>"천개구리"라는 하나의 생명체를 위한 위키</p>
+
+<table class="temp-table">
+
+    <colgroup>
+        <col style="width:80px;">
+        <col style="width:288px;">
+    </colgroup>
+
+    <tr>
+        <td colspan="2" class="label">
+
+            <div class="related-title">
+
+                <a href="index.html">
+                    <img src="Images/yejunhead.jpg"
+                         alt="천예준 사진"
+                         width="50"
+                         height="50">
+                </a>
+
+                <div class="related-divider"></div>
+
+                <div class="related-title-text">
+                    <a href="index.html">
+                        <span style="font-size:20px;">천예준</span>
+                    </a>
+                    <span>관련 문서</span>
+                </div>
+
+            </div>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" class="toggle-cell">
+            <span class="toggle-button" onclick="toggleRelated()">
+                [펼치기 • 접기]
+            </span>
+        </td>
+    </tr>
+
+    <tbody id="related-content">
+
+        <tr>
+            <td class="label"><a href="criticism.html">비판</a></td>
+            <td>
+                <a href="criticism.html" style="color:#ffaa00;">
+                    천예준/비판
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"><a href="accident.html">사건 사고</a></td>
+            <td>
+                <a href="accident2022down.html" style="color:#ffaa00;">2022년 이전</a>
+                <a href="accident2022.html" style="color:#ffaa00;">2022년</a>
+                <a href="accident2026down.html" style="color:#ffaa00;">2023년~2025년</a>
+                <a href="accident2026.html" style="color:#ffaa00;">2026년</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"><a href="accidentlist.html">주요 사건</a></td>
+            <td>
+                <a href="dongheac.html" style="color:#ffaa00;">동해선 사건</a>
+                <a href="pigeonac.html" style="color:#ffaa00;">비둘기 사건</a>
+                <a href="japanac.html" style="color:#ffaa00;">일본 여행 관련 사건</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<br>
+
+<table class="profile-table">
+    <tr>
+        <td class="label" colspan="2">천예준</td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <img src="Images/profile.jpg"
+                 alt="천예준 사진"
+                 width="350"
+                 height="350">
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">본명</td>
+        <td>천예준(Chun Ye-jun)</td>
+    </tr>
+
+    <tr>
+        <td class="label" rowspan="2">출생</td>
+        <td>2007년 8월 7일(19세)</td>
+    </tr>
+
+    <tr>
+        <td>서울특별시 강남구 청담동(본인 주장)</td>
+    </tr>
+
+    <tr>
+        <td class="label">거주지</td>
+        <td>
+            경상북도 포항시 북구 장성동<br>
+            두산위브더제니스
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">국적</td>
+        <td>
+            <img src="Images/korean flag.jpg"
+                 alt="태극기"
+                 width="30"
+                 height="20"
+                 style="vertical-align:middle;">
+            대한민국
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">학력</td>
+        <td>
+            장량초등학교(졸업)<br>
+            대도중학교(졸업)<br>
+            포항장성고등학교(졸업)<br>
+            대구가톨릭대학교(미래자동차공학과/재학)
+        </td>
+    </tr>
+
+    <tr>
+        <td class="label">링크</td>
+        <td>4</td>
+    </tr>
+</table>
+
+<p><br></p>
+
+<table>
+    <tr>
+        <td>
+
+            <span id="toc" style="font-size:20px;">목차</span><br>
+
+            <a href="#overview1"
+               style="display:inline; margin-left:10px; color:#ffaa00;">1</a><p style="display:inline;">. 개요</p>
+
+            <br>
+
+            <a href="#overview2"
+               style="display:inline; margin-left:10px; color:#ffaa00;">2</a><p style="display:inline;">. 상세</p>
+
+            <br>
+
+            <a href="#overview3"
+               style="display:inline; margin-left:10px; color:#ffaa00;">3</a><p style="display:inline;">. 인간관계</p>
+
+            <br>
+
+            <p>
+                <a href="#overview4"
+                   style="display:inline; margin-left:10px; color:#ffaa00;">4</a>.
+                <a href="criticism.html"
+                   style="display:inline; color:#ffaa00;">비판</a>
+            </p>
+
+            <p>
+                <a href="#overview5"
+                   style="display:inline; margin-left:10px; color:#ffaa00;">5</a>.
+                <span>사건 사고</span>
+            </p>
+
+            <a href="#overview6"
+               style="display:inline; margin-left:10px; color:#ffaa00;">6</a><p style="display:inline;">. 별명</p>
+
+            <br>
+
+            <a href="#overview7"
+               style="display:inline; margin-left:10px; color:#ffaa00;">7</a><p style="display:inline;">. 여담</p>
+
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<!-- 1. 개요 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle1"
+          class="section-toggle"
+          onclick="toggleSection('section1', 'toggle1', 'number1', 'title1')">⌄</span>
+</p>
+
+<p id="overview1" style="display:inline;">
+    <a href="#toc"
+       id="number1"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">1</a>
+</p>
+
+<p id="title1"
+   style="display:inline; font-size:25px; font-weight:bold;">. 개요</p>
+
+<hr>
+
+<div id="section1">
+    <p>
+    대한민국에 거주하는 대학생이자
+    <strong>이 위키가 만들어지는 계기가 되는 인물</strong>로,
+    2010년대 초반부터 지금까지 많은 논란거리와 사건사고를 만들어낸 인물이다.
+    </p>
+</div>
+
+<br><br>
+
+<!-- 2. 상세 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle2"
+          class="section-toggle"
+          onclick="toggleSection('section2', 'toggle2', 'number2', 'title2')">⌄</span>
+</p>
+
+<p id="overview2" style="display:inline;">
+    <a href="#toc"
+       id="number2"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">2</a>
+</p>
+
+<p id="title2"
+   style="display:inline; font-size:25px; font-weight:bold;">. 상세</p>
+
+<hr>
+
+<div id="section2">
+    <p>
+    성격이 괴팍한 편이다. 본인의 마음에 들지 않는 점이 있다면
+    주변의 물건을 집어던진다(...)
+    </p>
+</div>
+
+<br><br>
+
+<!-- 3. 인간관계 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle3"
+          class="section-toggle"
+          onclick="toggleSection('section3', 'toggle3', 'number3', 'title3')">⌄</span>
+</p>
+
+<p id="overview3" style="display:inline;">
+    <a href="#toc"
+       id="number3"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">3</a>
+</p>
+
+<p id="title3"
+   style="display:inline; font-size:25px; font-weight:bold;">. 인간관계</p>
+
+<hr>
+
+<div id="section3">
+    <p style="margin-left:10px;">
+    • 김석준 - <strong>천예준에 의한 최대의 피해자.</strong> 12년 전인 2014년부터 천예준에게
+    당해온 비운의 인물이다. 실제로, 초등학교 1학년 때부터
+    <del>더 낮아질 정신연령이 있을지 의문인 시절에도</del> 뻘짓을 저지르며
+    당시의 김석준에게 매우 큰 피해를 끼쳤고, 중학생 시절에도 복도에 드러눕거나(...)
+    성희롱을 하는 등 정신연령이 그대로인 모습을 보였다.
+    최근에는 김석준의 학교 학생회장이나 여자 동기를 성희롱하고,
+    더블 데이트 신청<del>(???)</del>을 함으로 인해 연애, 결혼 관련 PTSD를 유발시켰다.
+    </p>
+</div>
+
+<br><br>
+
+<!-- 4. 비판 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle4"
+          class="section-toggle"
+          onclick="toggleSection('section4', 'toggle4', 'number4', 'title4')">⌄</span>
+</p>
+
+<p id="overview4" style="display:inline;">
+    <a href="#toc"
+       id="number4"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">4</a>
+</p>
+
+<p id="title4"
+   style="display:inline; font-size:25px; font-weight:bold;">. 비판</p>
+
+<hr>
+
+<div id="section4">
+    <p><img src="Images/doculogo.jpg"
+                 alt="태극기"
+                 width="20"
+                 height="20"
+                 style="vertical-align:middle;"> 
+    자세한 내용은
+    <a href="criticism.html" style="color:#ffaa00;">천예준/비판</a>
+    문서를 참조하십시오.
+    </p>
+</div>
+
+<br><br>
+
+<!-- 5. 사건 사고 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle5"
+          class="section-toggle"
+          onclick="toggleSection('section5', 'toggle5', 'number5', 'title5')">⌄</span>
+</p>
+
+<p id="overview5" style="display:inline;">
+    <a href="#toc"
+       id="number5"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">5</a>
+</p>
+
+<p id="title5"
+   style="display:inline; font-size:25px; font-weight:bold;">. 사건 사고</p>
+
+<hr>
+
+<div id="section5">
+    <p><img src="Images/doculogo.jpg"
+                 alt="태극기"
+                 width="20"
+                 height="20"
+                 style="vertical-align:middle;"> 자세한 내용은 
+    <a href="accident.html" style="color:#ffaa00;">천예준/사건 사고</a>
+    문서를 참조하십시오.
+    </p>
+</div>
+
+<br><br>
+
+<!-- 6. 별명 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle6"
+          class="section-toggle"
+          onclick="toggleSection('section6', 'toggle6', 'number6', 'title6')">⌄</span>
+</p>
+
+<p id="overview6" style="display:inline;">
+    <a href="#toc"
+       id="number6"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">6</a>
+</p>
+
+<p id="title6"
+   style="display:inline; font-size:25px; font-weight:bold;">. 별명</p>
+
+<hr>
+
+<div id="section6">
+
+    <p>
+    개구리를 연상시키는 별명이 많은데, 외적인 면에서도 개구리를 닮았고,
+    행동 면에서도 항상 친구들의 말을 듣지 않고 엉뚱히 행동한다는 점에서
+    청개구리를 연상시키기 때문이다.
+    </p>
+
+    <br>
+
+    <p style="margin-left:10px;">
+    • 개좇밥 버러지 개구리 새끼 - <strong>천예준의 대표격 별명</strong>이다.
+    '개좇밥 버러지'는 덩치는 크지만 실제 싸움 실력이나 맷집은 초등학생보다도 못하기 때문에,
+    '개구리 새끼'는 얼굴과 체형이 개구리를 닮았다는 것을 의미하고,
+    지능 수준도 개구리 수준이며, 무엇보다 말을 듣지 않고 항상 이상하게 행동하기 때문에 지어졌다.
+    </p>
+
+    <br><br>
+
+    <p style="margin-left:10px;">
+    • 팩맨, 케로롱, 천개구리, 개구리 주먹밥 - 앞서 설명하였듯
+    '천예준' 하면 개구리가 떠오르기 때문에 지어진 별명들이다.
+    </p>
+
+    <br><br>
+
+    <p style="margin-left:10px;">
+    • PTSD 제조기 - 개구리를 제외하고 가장 많이 쓰이는 편인 별명으로,
+    2026년 김석준의 대학 동기와 학생회장을 상대로 성희롱하고,
+    ChatGPT(...)를 상대로 연애하는 등 이성 관계 부분에서 김석준에게
+    트라우마를 선사하였기 때문에 지어진 별명이다.
+    </p>
+
+    <br><br>
+
+    <p style="margin-left:10px;">
+    • 고우 - 고우가 포켓몬 애니메이션에서 발암캐 역할을 맡듯이,
+    천예준도 대다수의 사람들 주변에서 발암캐 역할을 맡기 때문에 생겨난 별명이다.
+    </p>
+
+</div>
+
+<br><br>
+
+<!-- 7. 여담 -->
+<p style="display:inline; font-size:30px;">
+    <span id="toggle7"
+          class="section-toggle"
+          onclick="toggleSection('section7', 'toggle7', 'number7', 'title7')">⌄</span>
+</p>
+
+<p id="overview7" style="display:inline;">
+    <a href="#toc"
+       id="number7"
+       style="color:#ffaa00; font-size:25px; font-weight:bold; text-decoration:none;">7</a>
+</p>
+
+<p id="title7"
+   style="display:inline; font-size:25px; font-weight:bold;">. 여담</p>
+
+<hr>
+
+<div id="section7">
+
+    <p>
+    • 거짓말을 상당히 많이 치는 편이다. 북한의 도시인 시리원, 신의주, 청진, 평양 등에 가봤다고 하거나,
+    본인의 다리가 길고 피카츄를 닮았다고 주장한다.
+    </p>
+
+    <br>
+
+    <p>
+    • 본인이 인생에서 여친이 10명 이상 있었다고 주장하나,
+    현실 데이트를 한 적이 <strong>단 한 번도 없다</strong>.
+    따라서, 여친이 있다는 주장이 본인의 망상이거나 AI와 연애하고 있다고 받아들여진다.
+    </p>
+
+</div>
+
+<br>
+
+<script>
+function toggleRelated() {
+    const content = document.getElementById("related-content");
+
+    if (content.style.display === "none") {
+        content.style.display = "table-row-group";
+    } else {
+        content.style.display = "none";
+    }
+}
+
+function toggleSection(sectionId, toggleId, numberId, titleId) {
+
+    const section = document.getElementById(sectionId);
+    const toggle = document.getElementById(toggleId);
+    const number = document.getElementById(numberId);
+    const title = document.getElementById(titleId);
+
+    if (section.style.display === "none") {
+
+        /* 펼침 */
+        section.style.display = "block";
+
+        toggle.textContent = "⌄";
+        toggle.style.color = "";
+        toggle.style.transform = "translateY(-7px)";
+
+        number.style.color = "#ffaa00";
+        title.style.color = "";
+
+    } else {
+
+        /* 접음 */
+        section.style.display = "none";
+
+        toggle.textContent = ">";
+        toggle.style.color = "#999999";
+        toggle.style.transform = "translateY(-2px)";
+
+        number.style.color = "#FFDF3F";
+        title.style.color = "#999999";
+    }
+}
+</script>
+
+</body>
+</html>
